@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alvaro <alvaro@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 22:47:12 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/03/20 18:40:07 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/03/27 01:02:37 by alvaro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,14 @@
 
 void	ft_striteri(char *s, void (*f) (unsigned int, char*))
 {
-	char	*str;
 	unsigned int		i;
-	int		len;
 
 	i = 0;
-	len = ft_strlen(s);
-	str = (char *) malloc(len * sizeof(char));
 	while (s[i])
 	{
 		f(i, &s[i]);
 		i++;
 	}
-	return (str);
 }
 
 // char	rot_r(unsigned int r, char *c)

@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alvaro <alvaro@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 19:42:14 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/03/20 18:34:28 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/03/27 01:49:26 by alvaro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 static int	get_len(int nb)
 {
@@ -22,9 +21,35 @@ static int	get_len(int nb)
 	dec = 1;
 	if (number < 0)
 		number *= -1;
-	while (dec < number)
+	if (number == 0)
+		dec *= 10;
+	while (dec <= number)
 		dec *= 10;
 	return (dec / 10);
+}
+
+static int	get_memory(int nb)
+{
+	long	number;
+	long	dec;
+	int		contador;
+
+	number = (long) nb;
+	dec = 1;
+	contador = 0;
+	if (number < 0)
+	{
+		number *= -1;
+		contador++;
+	}
+	if (number == 0)
+		dec *= 10;
+	while (dec <= number)
+	{
+		contador++;
+		dec *= 10;
+	}
+	return (contador);
 }
 
 char	*ft_itoa(int nb)
@@ -38,13 +63,13 @@ char	*ft_itoa(int nb)
 	dlen = get_len(nb);
 	lnb = (long) nb;
 	i = 0;
-	ptr = (char *) malloc(12 * sizeof(char));
+	ptr = (char *) malloc(get_memory(nb) + 1);
 	if (lnb < 0)
 	{
 		ptr[i++] = '-';
 		lnb *= -1;
 	}
-	while (lnb > 0)
+	while (dlen > 0)
 	{
 		digit = lnb / dlen;
 		ptr[i] = digit + '0';
@@ -55,9 +80,8 @@ char	*ft_itoa(int nb)
 	ptr[i] = '\0';
 	return (ptr);
 }
-/*
-int	main(void)
-{
-	printf("num: %s", ft_itoa(-2147483648));
-}
-*/
+
+//int	main(void)
+//{
+	//printf("num: %s\n", ft_itoa(0));
+//}

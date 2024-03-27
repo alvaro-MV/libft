@@ -1,62 +1,42 @@
-Library		= libft.a
+# Nombre de la librería
+NAME = libft.a
 
-files 	   = ft_strlen \
-			 ft_memmove \
-			 ft_memcpy \
-			 ft_strlcpy \
-			 ft_isalpha \
-			 ft_isdigit \
-			 ft_isalnum \
-			 ft_isascii \
-			 ft_isprint \
-			 ft_memset \
-			 ft_bzero \
-			 ft_toupper \
-			 ft_tolower \
-			 ft_strchr \
-			 ft_strrchr \
-			 ft_strncmp \
-			 ft_memchr \
-			 ft_memcmp \
-			 ft_strnstr \
-			 ft_atoi \
-			 ft_calloc \
-			 ft_strdup \
-			 ft_substr \
-			 ft_strtrim \
-			 ft_split \
-			 ft_itoa \
-			 ft_strmapi \
-			 ft_putchar_fd \
-			 ft_putstr_fd \
-			 ft_putendl_fd \
-			 ft_putnbr_fd \
+# Compilador
+CC = cc
 
-Compiler	= gcc
+# Opciones de compilación
+CFLAGS = -Wall -Wextra -Werror
 
-CmpFlags	= -Wall -Wextra -Werror
+# Directorio de archivos fuente
+SRCDIR = .
 
-OUTN	= $(Library)
+# Obtener automáticamente todos los archivos .c en el directorio
+SRCS = $(wildcard $(SRCDIR)/*.c)
 
-CFILES	= $(files:%=%.c)
+# Objetos generados a partir de los archivos fuente
+OBJS = $(SRCS:.c=.o)
 
-OFILES	= $(files:%=%.o)
-
-NAME	= $(OUTN)
-
-$(NAME):
-	$(Compiler) $(CmpFlags) -c $(CFILES) -I./
-	ar -rc $(OUTN) $(OFILES)
-
+# Regla por defecto
 all: $(NAME)
 
-clean:
-	rm -f $(NAME)
-	rm -f $(OFILES)
+# Regla para construir la librería estática
+$(NAME): $(OBJS)
+	ar rcs $@ $^
 
+# Regla para compilar los archivos fuente en objetos
+%.o: %.c $(DEPS)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Regla para limpiar archivos generados
+clean:
+	rm -f $(OBJS)
+
+# Regla para eliminar todos los archivos generados
 fclean: clean
 	rm -f $(NAME)
 
+# Regla para reconstruir el proyecto desde cero
 re: fclean all
 
-.PHONY: all, clean, fclean, re
+# Phony targets (objetivos ficticios para evitar conflictos con archivos reales)
+.PHONY: all clean fclean re

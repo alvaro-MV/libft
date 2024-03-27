@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alvaro <alvaro@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 17:54:02 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/03/22 18:25:00 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/03/27 00:59:02 by alvaro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@ int ft_atoi(const char *str)
 {
     int	signo;
 	int	value;
-	int	i;
 
-	i = 0;
 	value = 0;
 	signo = 0;
 	while ((*str >= 9 && *str <= 13) || *str == 32)

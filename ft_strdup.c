@@ -3,31 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alvaro <alvaro@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 13:09:27 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/03/20 18:35:08 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/03/27 02:14:14 by alvaro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <string.h>
-#include <sys/errno.h>
 
 char	*ft_strdup(const char *s1)
 {
 	char	*ptr;
 	int		len;
 
+	if (!(*s1))
+		return (NULL);
 	len = 0;
 	while (s1[len])
 		len++;
-	ptr = (char *) malloc((unsigned long) len * sizeof(char));
+	ptr = (char *) malloc(len + 1);
 	if (ptr == 0)
-	{
-		errno = ENOMEM;
-		return (0);
-	}	
+		return (NULL);
 	ft_memcpy(ptr, s1, len);
 	return (ptr);
 }

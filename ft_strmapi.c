@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alvaro <alvaro@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 21:56:38 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/03/20 18:39:52 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/03/27 02:10:08 by alvaro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,32 +20,27 @@ char	*ft_strmapi(char const *s, char (*f) (unsigned int, char))
 
 	i = 0;
 	len = ft_strlen(s);
-	str = (char *) malloc(len * sizeof(char));
+	str = (char *) malloc(len * sizeof(char) + 1);
 	while (s[i])
 	{
 		str[i] = f(i, s[i]);
 		i++;
 	}
+	str[i] = '\0';
 	return (str);
 }
 
-// char	rot_r(unsigned int r, char c)
-// {
-// 	if ((int) r + c < 255)
-// 		return (r + c);
-// 	else
-// 		return (c);
-// }
+//char addOne(unsigned int i, char c) {return (i + c);}
 
-// int	main()
-// {
-// 	char const s[] = "Hola";
-// 	char	*ptr;
+//int	main()
+//{
+	//char const s[] = ""; // ""
+	//char	*ptr;
 
-// 	ptr = ft_strmapi(s, rot_r);
-// 	printf("ptr: %s", ptr);
-// 	free(ptr);
-// }
+	//ptr = ft_strmapi(s, addOne);
+	//printf("ptr: %s", ptr);
+	//free(ptr);
+//}
 
 // Una varaible función se define igual que cualquier otra variable, solo que 
 // también hay que incluir el tipo de parámetros. Luego puedes pasarle cualquier 

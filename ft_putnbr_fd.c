@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alvaro <alvaro@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 15:22:25 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/03/22 18:17:58 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/03/27 01:32:35 by alvaro           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void ft_putnbr_fd(int n, int fd)
 		write(fd, s, 1);
 		s++;
 	}
+	
 }
 
 // int	main()
