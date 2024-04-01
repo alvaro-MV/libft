@@ -59,7 +59,7 @@ char	**ft_split(char const *s, char c)
 	len = len_cal(s, c);
 	i = 0;
 	start = 0;
-	marr = (char **) malloc(len * sizeof(char *));
+	marr = (char **) malloc(len * sizeof(char *) + 1);
 	if (marr == NULL)
 		return (NULL);
 	while (i < len)
