@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/18 19:24:18 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/03/20 12:58:25by alvmoral         ###   ########.fr       */
+/*   Created: 2024/04/01 13:45:41 by alvmoral          #+#    #+#             */
+/*   Updated: 2024/04/01 17:32:38by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,20 @@ static int	len_cal(char const *s, char c)
 {
 	int	token;
 	int	i;
+	int	flag;
 
 	i = 0;
+	flag = 0;
 	token = 0;
 	while (s[i])
 	{
-		if (s[i] == c)
+		if (s[i] == c && flag)
+		{
 			token += 1;
+			flag = 0;
+		}
+		else if (s[i] != c)
+			flag = 1;
 		i++;
 	}
 	return (token + 1);
@@ -32,14 +39,12 @@ static int	get_sep(int start, char const *s, char c)
 {
 	int	next;
 
-	//printf("start: %d\t", start);
 	next = 0;
 	while (s[start] != c && s[start])
 	{
 		next++;
 		start++;
 	}
-	//printf("next: %d\n", next);
 	return (next);
 }
 
@@ -51,7 +56,7 @@ char	**ft_split(char const *s, char c)
 	int		next;
 	char	**marr;
 
-	len = len_cal(s, c); 
+	len = len_cal(s, c);
 	i = 0;
 	start = 0;
 	marr = (char **) malloc(len * sizeof(char *));
@@ -60,25 +65,30 @@ char	**ft_split(char const *s, char c)
 	while (i < len)
 	{
 		next = get_sep(start, s, c);
-		marr[i] = ft_substr(s, start, next);  
+		if (next != 0)
+		{
+			marr[i] = ft_substr(s, start, next);
+			i++;
+		}
 		start += next + 1;
-		i++;
 	}
+	marr[i] = NULL;
 	return (marr);
 }
 
 // int	main()
 // {
-// 	char const	s[] = "applied directly to the structure definition itself.";
+// 	char const	s[] = "No  sabes ";
 // 	char **marr = ft_split(s, ' ');
 // 	int	i;
+// 	int	len = len_cal(s, ' ');
 
 // 	i = 0;
-// 	while(i < len_cal(s, ' '))
+// 	while (i < len)
 // 	{
-// 		printf("s: %s\n", *marr);
+// 		printf("%s\n", *marr);
 // 		free(*marr);
-//  		marr++;
+// 		marr++;
 // 		i++;
 // 	}
 // 	return (0);

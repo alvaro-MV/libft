@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alvaro <alvaro@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 13:09:27 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/03/27 02:14:14 by alvaro           ###   ########.fr       */
+/*   Updated: 2024/04/01 16:38:23 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,22 @@ char	*ft_strdup(const char *s1)
 	char	*ptr;
 	int		len;
 
-	if (!(*s1))
-		return (NULL);
+//	if (!(*s1))
+		//return (NULL);
 	len = 0;
 	while (s1[len])
 		len++;
 	ptr = (char *) malloc(len + 1);
-	if (ptr == 0)
+	if (ptr == NULL)
 		return (NULL);
-	ft_memcpy(ptr, s1, len);
+	ft_memcpy(ptr, s1, len + 1);
 	return (ptr);
 }
 
 // int	main()
 // {
-// 	const char	s1[] = "YAAAAAAAAAAAAAAAAAAA";
-// 	const char	s2[] = "No tengo tiempo para dedicarle";
+// 	const char	s1[] = "HAHAHA \0 tu me vois pas !";
+// 	const char	s2[] = "HAHAHA \0 tu me vois pas !";
 // 	char		*ptrm = ft_strdup(s1);
 // 	char		*ptro = strdup(s2);
 // 	printf("ptrm: %s\n", ptrm);

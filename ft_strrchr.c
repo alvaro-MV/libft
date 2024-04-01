@@ -6,29 +6,29 @@
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 20:05:01 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/03/14 21:38:40 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/04/01 14:00:01 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
 
-char *ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-    const char  *sh;
-    
-    sh = 0;
-    c = (char) c;
-    while (*s)
-    {
-        if (*s == c)
-            sh = s;
-        s++;
-    }
-    if (*s == c)
-        return ((char *) s);
-    else
-        return ((char *) sh);
+	const char	*sh;
+
+	sh = 0;
+	c = (char) c;
+	while (*s)
+	{
+		if (*s == c)
+			sh = s;
+		s++;
+	}
+	if (*s == c)
+		return ((char *) s);
+	else
+		return ((char *) sh);
 }
 
 // int main()

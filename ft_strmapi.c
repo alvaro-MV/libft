@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alvaro <alvaro@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 21:56:38 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/03/27 02:10:08 by alvaro           ###   ########.fr       */
+/*   Updated: 2024/04/01 13:58:45 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ char	*ft_strmapi(char const *s, char (*f) (unsigned int, char))
 	//free(ptr);
 //}
 
-// Una varaible función se define igual que cualquier otra variable, solo que 
-// también hay que incluir el tipo de parámetros. Luego puedes pasarle cualquier 
+// Una varaible función se define igual que cualquier otra variable, 
+//solo que también hay que incluir el tipo de parámetros. 
+//Luego puedes pasarle cualquier
 // función que tenga los parámetros indicados. 

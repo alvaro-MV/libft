@@ -6,23 +6,23 @@
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 16:55:29 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/03/20 18:39:21 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/04/01 14:00:12 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static unsigned char	*startcmp(const char *s1, const char *set) 
+static unsigned char	*startcmp(const char *s1, const char *set)
 {
 	int				i;
 	unsigned char	*ptrs1;
 	unsigned char	*ptrset;
 
 	i = 0;
-	ptrs1 = (unsigned char*) s1;
-	ptrset = (unsigned char*) set;
-	while (ptrs1[i] == ptrset[i] && ptrs1[i] != 0 
-			&& ptrs1[i] != 0)
+	ptrs1 = (unsigned char *) s1;
+	ptrset = (unsigned char *) set;
+	while (ptrs1[i] == ptrset[i] && ptrs1[i] != 0
+		&& ptrs1[i] != 0)
 		i++;
 	return (&ptrs1[i]);
 }
@@ -52,7 +52,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	unsigned char	*ptrs1;
 	unsigned char	*ptrset;
 	unsigned char	*ptr;
-	
+
 	ptrset = (unsigned char *) set;
 	ptrs1 = startcmp(s1, set);
 	end = fin_cmp(ptrs1, ptrset);

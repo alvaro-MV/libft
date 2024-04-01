@@ -6,7 +6,7 @@
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:52:04 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/03/19 21:43:08 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/04/01 13:23:00 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
-	
+
 	ptr = malloc(count * size);
 	if (ptr == NULL)
 		return (NULL);

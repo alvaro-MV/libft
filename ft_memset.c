@@ -6,7 +6,7 @@
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 20:03:48 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/03/14 21:38:18 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/04/01 13:45:20 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	size_t	i;
+	size_t			i;
 	unsigned char	*str;
 
 	str = (unsigned char *) b;
@@ -36,8 +36,6 @@ void	*ft_memset(void *b, int c, size_t len)
 // 	ptr = buffer_re;
 // 	printf("buffer_or: %s\n", memset(ptr, 45, 6));
 // }
-
-
 /*
  * Casos límite: definir dos char [], no lo replica bien.
  *

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alvaro <alvaro@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 15:22:25 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/03/27 01:32:35 by alvaro           ###   ########.fr       */
+/*   Updated: 2024/04/01 13:31:54 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <unistd.h>
 //#include <fcntl.h>
 
-void ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	char	*s;
 
@@ -24,7 +24,6 @@ void ft_putnbr_fd(int n, int fd)
 		write(fd, s, 1);
 		s++;
 	}
-	
 }
 
 // int	main()

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alvaro <alvaro@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 20:31:44 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/03/27 01:30:24 by alvaro           ###   ########.fr       */
+/*   Updated: 2024/04/01 13:59:38 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ char	*ft_strnstr(const char	*haystack, const char	*needle,  size_t len)
 	j = 0;
 	while (haystack[i] && len--)
 	{
-		while ((needle[j] == haystack[i + j]) && len -j)
+		while ((needle[j] == haystack[i + j]) && len - j)
 		{
 			if (j + 1 == count)
-				return ((char *) (haystack + i));
+				return ((char *)(haystack + i));
 			j++;
 		}
 		j = 0;
@@ -48,4 +48,3 @@ char	*ft_strnstr(const char	*haystack, const char	*needle,  size_t len)
 // 	printf("mine: %s\n", ft_strnstr(str, to_find, 8));
 //     printf("orig: %s", strnstr(str, to_find, 8));
 // }
-

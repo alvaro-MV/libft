@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/01 13:26:54 by alvmoral          #+#    #+#             */
+/*   Updated: 2024/04/01 13:27:22 by alvmoral         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-void ft_lstdelone(t_list *lst, void (*del)(void*))
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
 	del(lst->content);
 }
@@ -10,24 +22,23 @@ void	del(void *content)
 	free(content);
 }
 
-int	main()
-{
+//int	main()
+//{
+	//t_list	*new = ft_lstnew(NULL);
+	//t_list	*after = ft_lstnew(NULL);
+	//t_list	*list = ft_lstnew(NULL);
+	//double	val = 12.3;
 
-	t_list	*new = ft_lstnew(NULL);
-	t_list	*after = ft_lstnew(NULL);
-	t_list	*list = ft_lstnew(NULL);
-	double	val = 12.3;
-
-	ft_lstadd_front(&list, new);
-	after->content = (void *) &val;
-	ft_lstadd_back(&new, after);
+	//ft_lstadd_front(&list, new);
+	//after->content = (void *) &val;
+	//ft_lstadd_back(&new, after);
 	
-	ft_lstdelone(after, del);
-	printf("contenido_last: %f\n", *(double *) ft_lstlast(new)->content);
-	free(new);
-	free(after);
-	free(list);
-}
+	//ft_lstdelone(after, del);
+	//printf("contenido_last: %f\n", *(double *) ft_lstlast(new)->content);
+	//free(new);
+	//free(after);
+	//free(list);
+//}
 
 /*
 A ti te pasan el nodo a liberar y tu

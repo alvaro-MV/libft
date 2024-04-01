@@ -6,7 +6,7 @@
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:32:29 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/03/14 22:02:21 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/04/01 13:42:02 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,3 @@ void	*ft_memchr(const void *s, int c, size_t n)
 
 // 	printf("ocurrence: %s\n", (unsigned char *) ft_memchr(s, c, 4));
 // }
-
-/*
-Comparar teniendo en cuenta la función original. Probar con otros casos límite definidos en anteriores ejercicios.
-*/

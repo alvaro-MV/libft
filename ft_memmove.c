@@ -6,22 +6,23 @@
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 15:58:49 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/03/22 17:53:26 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/04/01 13:44:39 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <string.h>
 
-static int set_index(size_t *i, size_t *j, size_t len, char *pdst, char *psrc)
+static int	set_index(size_t *i, size_t *j, size_t len, char *pdst, char *psrc)
 {
-	int flag;
+	int	flag;
+
 	if (pdst <= psrc)
 	{
 		flag = 1;
 		*i = 0;
 		*j = 0;
-	}	
+	}
 	else
 	{
 		flag = 0;
@@ -35,8 +36,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	char	*pdst;
 	char	*psrc;
-	size_t		i;
-	size_t		j;
+	size_t	i;
+	size_t	j;
 	int		flag;
 
 	pdst = (char *) dst;
