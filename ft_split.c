@@ -17,40 +17,36 @@ static int	len_cal(char const *s, char c)
 {
 	int	token;
 	int	i;
-	int	flag;
 
 	i = 0;
-	flag = 0;
 	token = 0;
 	while (s[i])
 	{
 		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
-		{
 			token += 1;
-			flag = 1;
-		}
-		// else if (s[i] != c && s[i] != '\0')
-		// 	flag = 1;
 		i++;
 	}
+	if (s[0] != c)
+		token++;
 	return (token);
 }
 
-static void	get_sep(unsigned int *start, unsigned int *next, char const *s, char c)
+static void	get_sep(unsigned int *start, unsigned int *next,
+char const *s, char c)
 {
 	*next = 0;
 	while (s[*start] && s[*start] == c)
 	{
 		*start = *start + 1;
-		printf("start: %u\t next: %u\n", *start, *next);
+		//printf("start: %u\t next: %u\n", *start, *next);
 	}
 	while (s[*start] && s[*start] != c)
 	{
 		*next = *next + 1;
 		*start = *start + 1;
-		printf("start: %u\t next: %u\n", *start, *next);
+		//printf("start: %u\t next: %u\n", *start, *next);
 	}
-	printf("----------\n");
+	//printf("----------\n");
 }
 
 static char	**release(char **marr, int i)
@@ -73,7 +69,6 @@ char	**ft_split(char const *s, char c)
 	char				**marr;
 
 	len = len_cal(s, c);
-	printf("len: %d", len);
 	i = 0;
 	start = 0;
 	next = 0;
@@ -84,7 +79,7 @@ char	**ft_split(char const *s, char c)
 	{
 		get_sep(&start, &next, s, c);
 		marr[i] = ft_substr(s, start - next, next);
-		printf("marri: %s\n", marr[i]);
+		//printf("marri: %s\n", marr[i]);
 		if (marr[i] == NULL)
 			return (release(marr, i));
 		i++;
@@ -95,7 +90,7 @@ char	**ft_split(char const *s, char c)
 
 // int	main(void)
 // {
-// 	char	*s = "      split       this for   me  !       ";
+// 	char	*s = "     olol      ";
 // 	char	**marr = ft_split(s, ' ');
 // 	int		i = 0;
 
