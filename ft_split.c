@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
 
 static int	len_cal(char const *s, char c)
 {
@@ -23,73 +24,90 @@ static int	len_cal(char const *s, char c)
 	token = 0;
 	while (s[i])
 	{
-		if (s[i] == c && flag)
+		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
 		{
 			token += 1;
-			flag = 0;
-		}
-		else if (s[i] != c)
 			flag = 1;
+		}
+		// else if (s[i] != c && s[i] != '\0')
+		// 	flag = 1;
 		i++;
 	}
-	return (token + 1);
+	return (token);
 }
 
-static int	get_sep(int start, char const *s, char c)
+static void	get_sep(unsigned int *start, unsigned int *next, char const *s, char c)
 {
-	int	next;
-
-	next = 0;
-	while (s[start] != c && s[start])
+	*next = 0;
+	while (s[*start] && s[*start] == c)
 	{
-		next++;
-		start++;
+		*start = *start + 1;
+		printf("start: %u\t next: %u\n", *start, *next);
 	}
-	return (next);
+	while (s[*start] && s[*start] != c)
+	{
+		*next = *next + 1;
+		*start = *start + 1;
+		printf("start: %u\t next: %u\n", *start, *next);
+	}
+	printf("----------\n");
+}
+
+static char	**release(char **marr, int i)
+{
+	while (i > 0)
+	{
+		free(marr[i]);
+		i--;
+	}
+	free(marr);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	int		len;
-	int		i;
-	int		start;
-	int		next;
-	char	**marr;
+	int					len;
+	int					i;
+	unsigned int		start;
+	unsigned int		next;
+	char				**marr;
 
 	len = len_cal(s, c);
+	printf("len: %d", len);
 	i = 0;
 	start = 0;
-	marr = (char **) malloc(len * sizeof(char *) + 1);
+	next = 0;
+	marr = (char **) malloc((len + 1) * sizeof(char *));
 	if (marr == NULL)
 		return (NULL);
 	while (i < len)
 	{
-		next = get_sep(start, s, c);
-		if (next != 0)
-		{
-			marr[i] = ft_substr(s, start, next);
-			i++;
-		}
-		start += next + 1;
+		get_sep(&start, &next, s, c);
+		marr[i] = ft_substr(s, start - next, next);
+		printf("marri: %s\n", marr[i]);
+		if (marr[i] == NULL)
+			return (release(marr, i));
+		i++;
 	}
 	marr[i] = NULL;
 	return (marr);
 }
 
-// int	main()
+// int	main(void)
 // {
-// 	char const	s[] = "No  sabes ";
-// 	char **marr = ft_split(s, ' ');
-// 	int	i;
-// 	int	len = len_cal(s, ' ');
+// 	char	*s = "      split       this for   me  !       ";
+// 	char	**marr = ft_split(s, ' ');
+// 	int		i = 0;
 
-// 	i = 0;
-// 	while (i < len)
+// 	while (marr[i] != NULL)
 // 	{
-// 		printf("%s\n", *marr);
+// 		printf("%s\n", marr[i]);
+// 		i++;
+// 	}
+// 	while (marr != NULL)
+// 	{
 // 		free(*marr);
 // 		marr++;
-// 		i++;
 // 	}
 // 	return (0);
 // }
