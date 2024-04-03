@@ -32,12 +32,6 @@ static int	len_cal(char const *s, char c)
 static void	get_sep(unsigned int *start, unsigned int *next,
 char const *s, char c)
 {
-	int				found;
-	unsigned int	i;
-
-	found = 0;
-	i = *next;
-
 	*next = 0;
 	while (s[*start] && s[*start] == c)
 	{
@@ -48,7 +42,9 @@ char const *s, char c)
 		*next = *next + 1;
 		*start = *start + 1;
 	}
-	//printf("----------\n");
+
+	
+	// printf("----------\n");
 	// while (s[i] && !found)
 	// {
 	// 	if (s[i] == c && s[i + 1] != c)
@@ -64,11 +60,8 @@ char const *s, char c)
 
 static char	**release(char **marr, int i)
 {
-	while (i > 0)
-	{
+	while (i--)
 		free(marr[i]);
-		i--;
-	}
 	free(marr);
 	return (NULL);
 }
@@ -93,7 +86,10 @@ char	**ft_split(char const *s, char c)
 	while (i < len)
 	{
 		get_sep(&start, &next, s, c);
-		marr[i] = ft_substr(s, start - next, next);
+		if (next > 0)
+			marr[i] = ft_substr(s, start - next, next);
+		else
+			marr[i] = ft_substr(s, start - next, 1);
 		if (marr[i] == NULL)
 			return (release(marr, i));
 		i++;
@@ -104,19 +100,23 @@ char	**ft_split(char const *s, char c)
 
 // int	main(void)
 // {
-// 	char	s[] = "";
-// 	char	**marr = ft_split(s, 'z');
+// 	char	**marr = ft_split("", '^');
 // 	int		i = 0;
 
-// 	while (marr[i] != NULL)
+// 	if (len_cal("", '^') > 0)
 // 	{
-// 		printf("%s\n", marr[i]);
-// 		i++;
+// 		while (marr[i] != NULL)
+// 		{
+// 			printf("%s\n", marr[i]);
+// 			i++;
+// 		}
+// 		while (i > 0)
+// 		{
+// 			free(marr[i - 1]);
+// 			i--;
+// 		}
 // 	}
-// 	while (marr != NULL)
-// 	{
-// 		free(*marr);
-// 		marr++;
-// 	}
+// 	else
+// 		printf("marr 0: %s", marr[0]);
 // 	return (0);
 // }
