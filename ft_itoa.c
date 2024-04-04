@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alvaro <alvaro@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 19:42:14 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/03/27 01:49:26 by alvaro           ###   ########.fr       */
+/*   Updated: 2024/04/04 18:17:08 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int	get_memory(int nb)
 		contador++;
 	}
 	if (number == 0)
-		dec *= 10;
+		return (1);
 	while (dec <= number)
 	{
 		contador++;
@@ -52,9 +52,22 @@ static int	get_memory(int nb)
 	return (contador);
 }
 
+static void	loop(char *ptr, long dlen, long lnb, int *i)
+{
+	int	digit;
+
+	while (dlen > 0)
+	{
+		digit = lnb / dlen;
+		ptr[*i] = digit + '0';
+		lnb -= digit * dlen;
+		*i = *i + 1;
+		dlen /= 10;
+	}
+}
+
 char	*ft_itoa(int nb)
 {
-	int		digit;
 	int		dlen;
 	int		i;
 	long	lnb;
@@ -64,24 +77,22 @@ char	*ft_itoa(int nb)
 	lnb = (long) nb;
 	i = 0;
 	ptr = (char *) malloc(get_memory(nb) + 1);
+	if (ptr == NULL)
+		return (NULL);
 	if (lnb < 0)
 	{
 		ptr[i++] = '-';
 		lnb *= -1;
 	}
-	while (dlen > 0)
-	{
-		digit = lnb / dlen;
-		ptr[i] = digit + '0';
-		lnb -= digit * dlen;
-		i++;
-		dlen /= 10;
-	}
+	loop(ptr, dlen, lnb, &i);
 	ptr[i] = '\0';
 	return (ptr);
 }
 
-//int	main(void)
-//{
-	//printf("num: %s\n", ft_itoa(0));
-//}
+// int	main(void)
+// {
+// 	char	*num = ft_itoa(0);
+
+// 	printf("%s\n", num);
+// 	free(num);
+// }
