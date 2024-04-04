@@ -6,7 +6,7 @@
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:41:45 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/04/03 21:53:32 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/04/04 20:11:40 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	unsigned char	*ptrsrc;
 	size_t			i;
 
+	if (dst == NULL && src == NULL)
+		return (NULL);
 	ptrdst = (unsigned char *) dst;
 	ptrsrc = (unsigned char *) src;
 	i = 0;

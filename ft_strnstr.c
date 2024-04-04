@@ -6,11 +6,11 @@
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 20:31:44 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/04/01 13:59:38 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/04/04 20:26:16 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 #include <string.h>
 
 char	*ft_strnstr(const char	*haystack, const char	*needle,  size_t len)
@@ -26,25 +26,26 @@ char	*ft_strnstr(const char	*haystack, const char	*needle,  size_t len)
 		return ((char *) haystack);
 	i = 0;
 	j = 0;
-	while (haystack[i] && len--)
+	while (haystack[i] && len)
 	{
 		while ((needle[j] == haystack[i + j]) && len - j)
 		{
 			if (j + 1 == count)
 				return ((char *)(haystack + i));
 			j++;
+			//printf("j: %d, len: %zu, count: %d\n", j, len, count);
 		}
 		j = 0;
 		i++;
+		len--;
 	}
 	return (0);
 }
 
 // int	main()
 // {
-// 	char	str[] = "LOs Illyis son";
-// 	char	to_find[] = "ly";
-
-// 	printf("mine: %s\n", ft_strnstr(str, to_find, 8));
-//     printf("orig: %s", strnstr(str, to_find, 8));
+// 	char	str[] = "AAAAAAAAA";
+// 	///char	to_find[] = "ly";
+// 	printf("mine: %s\n", ft_strnstr(str, str, ft_strlen(str)));
+// 	printf("orig: %s", strnstr(str, str, ft_strlen(str)));
 // }
