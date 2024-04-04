@@ -6,7 +6,7 @@
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 20:31:44 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/04/04 20:26:16 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/04/04 20:27:15 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ char	*ft_strnstr(const char	*haystack, const char	*needle,  size_t len)
 			if (j + 1 == count)
 				return ((char *)(haystack + i));
 			j++;
-			//printf("j: %d, len: %zu, count: %d\n", j, len, count);
 		}
 		j = 0;
 		i++;

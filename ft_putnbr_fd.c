@@ -6,23 +6,52 @@
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 15:22:25 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/04/01 13:31:54 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/04/04 20:39:04 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
-//#include <fcntl.h>
+
+static int	get_len(int nb)
+{
+	long	number;
+	long	dec;
+
+	number = (long) nb;
+	dec = 1;
+	if (number < 0)
+		number *= -1;
+	if (number == 0)
+		dec *= 10;
+	while (dec <= number)
+		dec *= 10;
+	return (dec / 10);
+}
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	*s;
+	int		dlen;
+	int		i;
+	int		digit;
+	long	lnb;
+	char	printn;
 
-	s = ft_itoa(n);
-	while (*s)
+	dlen = get_len(n);
+	lnb = (long) n;
+	i = 0;
+	if (lnb < 0)
 	{
-		write(fd, s, 1);
-		s++;
+		write(fd, "-", 1);
+		lnb *= -1;
+	}
+	while (dlen > 0)
+	{
+		digit = lnb / dlen;
+		printn = digit + '0';	
+		write(fd, &printn, 1);
+		lnb -= digit * dlen;
+		i = i + 1;
+		dlen /= 10;
 	}
 }
 
