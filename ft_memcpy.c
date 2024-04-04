@@ -6,7 +6,7 @@
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:41:45 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/04/01 13:43:45 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/04/03 21:53:32 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,15 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 
 // int	main()
 // {
-// 	char	dst[20] = "Hola";
-// 	char	src[20] = "Adios.";
-// 	//int	dst = 9;
-// 	//int	src = 5;
+// 	// char	dst[20] = "Hola";
+// 	// char	src[20] = "Adios.";
+// 	float	dst = 9;
+// 	float	src = 2;
 
-// 	ft_memcpy(&dst, &src, sizeof(dst));
-// 	printf("dst: %s\n", dst);
+// 	ft_memcpy(&dst, &src, 1);
+// 	printf("dst: %f\n", dst);
 // 	memcpy(&dst, &src, sizeof(dst));
-// 	printf("fun: %s\n", dst);
+// 	printf("fun: %f\n", dst);
 
 // }
 

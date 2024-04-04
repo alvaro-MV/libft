@@ -6,7 +6,7 @@
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 21:04:11 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/04/01 13:33:14 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/04/04 15:39:17 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ char	*ft_strchr(const char *s, int c)
 // int main()
 // {
 //     const char s[] = "HOLLLa";
-//     printf("str: %s\n", ft_strrchr(s, 'O'));
+//     printf("str: %s\n", ft_strchr(s, 'O'));
 //     printf("str: %s\n", strchr(s, 'O'));
 // }
