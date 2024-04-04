@@ -6,7 +6,7 @@
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 15:58:49 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/04/01 13:44:39 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/04/04 17:11:34 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,12 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	size_t	j;
 	int		flag;
 
+	if (dst == NULL && src == NULL)
+		return (NULL);
 	pdst = (char *) dst;
 	psrc = (char *) src;
 	flag = set_index(&i, &j, len, pdst, psrc);
-	while (len-- && psrc[i])
+	while (len--)
 	{
 		if (flag)
 		{
