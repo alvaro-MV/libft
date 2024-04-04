@@ -47,11 +47,11 @@ SRCS =	ft_atoi.c \
 		  ft_toupper.c
 SRCS_BONUS = ft_lstadd_back.c \
 		  ft_lstadd_front.c \
-		  ft_lstclear.c \
 		  ft_lstdelone.c \
+		  ft_lstclear.c \
 		  ft_lstiter.c \
-		  ft_lstlast.c \
 		  ft_lstmap.c \
+		  ft_lstlast.c \
 		  ft_lstnew.c \
 		  ft_lstsize.c
 
@@ -65,13 +65,16 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar rcs $@ $^
 
+bonus: $(OBJS_BONUS)
+	ar rcs $(NAME) $(OBJS_BONUS)
+
 # Regla para compilar los archivos fuente en objetos
 %.o: %.c $(DEPS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # Regla para limpiar archivos generados
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(OBJS_BONUS)
 
 # Regla para eliminar todos los archivos generados
 fclean: clean
@@ -81,4 +84,4 @@ fclean: clean
 re: fclean all
 
 # Phony targets (objetivos ficticios para evitar conflictos con archivos reales)
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

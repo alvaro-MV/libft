@@ -6,7 +6,7 @@
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 13:26:54 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/04/01 13:27:22 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/04/04 22:27:57 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
 	del(lst->content);
+	free(lst);
 }
 
 void	del(void *content)

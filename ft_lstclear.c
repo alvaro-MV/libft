@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/01 13:28:05 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/04/04 22:09:48 by alvmoral         ###   ########.fr       */
+/*   Created: 2024/04/04 22:23:26 by alvmoral          #+#    #+#             */
+/*   Updated: 2024/04/04 22:42:22 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+void	ft_lstclear(t_list **lst, void (*del) (void *))
 {
-	t_list	*new_n;
+	t_list	*holder;
+	t_list	*list;
 
-	new_n = (t_list *) malloc(sizeof(t_list));
-	if (new_n == NULL)
-		return (NULL);
-	new_n->content = content;
-	new_n->next = NULL;
-	return (new_n);
+	list = *lst;
+	while (list != NULL)
+	{
+		holder = list;
+		list = list->next;
+		del(holder->content);
+		free(holder);
+	}
+	*lst = NULL;
 }
-
-// int	main()
-// {
-// 	t_list	*nodo;
-// 	char	conte[] = "Si yo te contara...";
-
-// 	nodo = ft_lstnew(conte);
-// 	printf("conte: %s\n", (char *) nodo->content);
-// 	printf("next: %s", (char *) nodo->next);
-// 	free(nodo);
-// }
