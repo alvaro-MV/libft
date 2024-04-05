@@ -14,18 +14,18 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	tlen;
+	size_t		tlen;
+	size_t		catlen;
 	size_t		i;
-	//int	catlen;
 
 	i = 0;
 	tlen = ft_strlen((const char *) dst) + ft_strlen(src);
-	//catlen = dstsize - ft_strlen((const char *) dst) - 1;
-	//if (dstsize < 0)
-	//	catlen = ft_strlen(src);
-	while (*dst && ft_strlen(dst) > dstsize)
+	catlen = dstsize - ft_strlen((const char *) dst) - 1;
+	while (*dst)
 		dst++;
-	while ((i + ft_strlen(dst) < dstsize -1) && src[i])
+	if (catlen > ft_strlen(src))
+		catlen = ft_strlen(src);
+	while (i < catlen)
 	{
 		*dst = src[i];
 		i++;
@@ -40,13 +40,11 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 
 // int main()
 // {
-// 	char	*dstm;
-
-// 	dstm = "pqrstuvwxyz";
+// 	char	dstm[34] = "Hola";
 // 	// char    dsto[4] = "B";	
 //     // char    src[] = "esto";
 // 	printf("len_mine: %zu\t mine_str: %s\n",
-// 		ft_strlcat(dstm, "abcd", 20), dstm);
+// 		ft_strlcat(dstm, "abcd", -1), dstm);
 // }
 
 /*

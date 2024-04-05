@@ -6,18 +6,18 @@
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 15:58:49 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/04/04 17:11:34 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/04/05 17:37:27 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <string.h>
 
-static int	set_index(size_t *i, size_t *j, size_t len, char *pdst, char *psrc)
+static int	set_index(size_t *i, size_t *j, size_t len, int diff)
 {
 	int	flag;
 
-	if (pdst <= psrc)
+	if (diff <= 0)
 	{
 		flag = 1;
 		*i = 0;
@@ -44,21 +44,13 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		return (NULL);
 	pdst = (char *) dst;
 	psrc = (char *) src;
-	flag = set_index(&i, &j, len, pdst, psrc);
+	flag = set_index(&i, &j, len, pdst - psrc);
 	while (len--)
 	{
 		if (flag)
-		{
-			pdst[i] = psrc[j];
-			i++;
-			j++;
-		}
+			pdst[i++] = psrc[j++];
 		else
-		{
-			pdst[i] = psrc[j];
-			i--;
-			j--;
-		}
+			pdst[i--] = psrc[j--];
 	}
 	return (dst);
 }
