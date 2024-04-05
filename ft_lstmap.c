@@ -6,7 +6,7 @@
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 22:52:31 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/04/05 17:29:11 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/04/05 18:20:43 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,26 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f) (void *), void (*del)(void *))
 {
-	lst->content = f(lst->content);
-	del(lst->content);
-	return (lst);
-	// t_list  *lstmap;
-	// t_list	*holder;
-	// int		contador;
+	t_list	*new_node;
+	t_list	*first_node;
+	int		contador;
 
-	// contador = 0;
-	// while (lst != NULL)
-	// {
-	// 	holder = lst;
-	// 	lst = lst->next;
-	// 	del 
-	// 	holder-> content = f(holder->content);
-	// 	contador++;
-	// }
-	// lstmap = (t_list *) malloc(contador * sizeof(t_list));
-	// ft_memcpy(lstmap, lst, contador);
-	// return (lstmap);
+	contador = 0;
+	first_node = ft_lstnew(f(lst->content));
+	lst = lst->next;
+	while (lst != NULL)
+	{
+		new_node = ft_lstnew(f(lst->content));
+		if (new_node == NULL)
+		{
+			ft_lstclear(&first_node, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&first_node, new_node);
+		lst = lst->next;
+		contador++;
+	}
+	new_node->next = NULL;
+	return (first_node);
 }
 
