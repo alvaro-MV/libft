@@ -1,6 +1,8 @@
 # Nombre de la librería
 NAME = libft.a
 
+NAME_BONUS = libft_bonus.a
+
 # Compilador
 CC = cc
 
@@ -55,33 +57,28 @@ SRCS_BONUS = ft_lstadd_back_bonus.c \
 		  ft_lstnew_bonus.c \
 		  ft_lstsize_bonus.c
 
-# Objetos generados a partir de los archivos fuente
 OBJS = $(SRCS:.c=.o)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
-# Regla por defecto
+
 all: $(NAME)
 
-# Regla para construir la librería estática
 $(NAME): $(OBJS)
 	ar rcs $@ $^
 
-bonus: $(OBJS_BONUS)
-	ar rcs $(NAME) $(OBJS_BONUS)
+$(NAME_BONUS): $(OBJS_BONUS)
+	ar rcs $@ $^
 
-# Regla para compilar los archivos fuente en objetos
+bonus: $(NAME_BONUS)
+
 %.o: %.c $(DEPS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Regla para limpiar archivos generados
 clean:
 	rm -f $(OBJS) $(OBJS_BONUS)
 
-# Regla para eliminar todos los archivos generados
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(NAME_BONUS)
 
-# Regla para reconstruir el proyecto desde cero
 re: fclean all
 
-# Phony targets (objetivos ficticios para evitar conflictos con archivos reales)
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re 
