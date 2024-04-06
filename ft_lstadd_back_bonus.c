@@ -6,7 +6,7 @@
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 13:26:23 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/04/04 22:21:41 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/04/05 21:21:43 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	t_list	*holder;
 
 	list = *lst;
+	if (list == NULL)
+		*lst = new;
 	if (list != NULL)
 	{
 		while (list != NULL)

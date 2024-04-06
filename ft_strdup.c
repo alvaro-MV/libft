@@ -6,20 +6,17 @@
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 13:09:27 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/04/01 16:38:23 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/04/06 14:52:23 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
 char	*ft_strdup(const char *s1)
 {
 	char	*ptr;
 	int		len;
 
-//	if (!(*s1))
-		//return (NULL);
 	len = 0;
 	while (s1[len])
 		len++;

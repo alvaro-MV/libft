@@ -5,13 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/01 13:45:41 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/04/01 17:32:38by alvmoral         ###   ########.fr       */
+/*   Created: 2024/04/06 14:29:29 by alvmoral          #+#    #+#             */
+/*   Updated: 2024/04/06 14:58:15 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
 static int	len_cal(char const *s, char c)
 {
@@ -42,20 +41,6 @@ char const *s, char c)
 		*next = *next + 1;
 		*start = *start + 1;
 	}
-
-	
-	// printf("----------\n");
-	// while (s[i] && !found)
-	// {
-	// 	if (s[i] == c && s[i + 1] != c)
-	// 		*start = i + 1;
-	// 	if (s[i] != c && (s[i + 1] == c || !s[i + 1]))
-	// 	{
-	// 		*next = i + 1;
-	// 		found = 1;
-	// 	}
-	// 	i++;
-	// }
 }
 
 static char	**release(char **marr, int i)
@@ -66,24 +51,27 @@ static char	**release(char **marr, int i)
 	return (NULL);
 }
 
+void	intialize_indexes(int *i, unsigned int *start, unsigned int *next)
+{
+	*i = 0;
+	*start = 0;
+	*next = 0;
+}
+
 char	**ft_split(char const *s, char c)
 {
-	int					len;
 	int					i;
 	unsigned int		start;
 	unsigned int		next;
 	char				**marr;
 
+	intialize_indexes(&i, &start, &next);
 	if (s == NULL)
 		return (NULL);
-	len = len_cal(s, c);
-	i = 0;
-	start = 0;
-	next = 0;
-	marr = (char **) malloc((len + 1) * sizeof(char *));
+	marr = (char **) malloc((len_cal(s, c) + 1) * sizeof(char *));
 	if (marr == NULL)
 		return (NULL);
-	while (i < len)
+	while (i < len_cal(s, c))
 	{
 		get_sep(&start, &next, s, c);
 		if (next > 0)

@@ -6,7 +6,7 @@
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 15:22:25 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/04/04 20:39:04 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/04/06 14:28:52 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ft_putnbr_fd(int n, int fd)
 	while (dlen > 0)
 	{
 		digit = lnb / dlen;
-		printn = digit + '0';	
+		printn = digit + '0';
 		write(fd, &printn, 1);
 		lnb -= digit * dlen;
 		i = i + 1;

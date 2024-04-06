@@ -6,14 +6,13 @@
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 14:00:35 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/04/04 23:13:19 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/04/06 13:55:12 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdio.h>
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>

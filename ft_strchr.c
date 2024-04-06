@@ -6,12 +6,11 @@
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 21:04:11 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/04/04 15:39:17 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/04/06 14:58:25 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {

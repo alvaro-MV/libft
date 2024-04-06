@@ -6,12 +6,11 @@
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 17:41:45 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/04/04 20:11:40 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/04/06 14:56:26 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {

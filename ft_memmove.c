@@ -6,12 +6,11 @@
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 15:58:49 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/04/05 17:37:27 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/04/06 14:56:31 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
 static int	set_index(size_t *i, size_t *j, size_t len, int diff)
 {

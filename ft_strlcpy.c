@@ -5,13 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 18:45:42 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/04/04 18:30:40y alvmoral         ###   ########.fr       */
+/*   Created: 2024/04/06 14:31:28 by alvmoral          #+#    #+#             */
+/*   Updated: 2024/04/06 14:31:29 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {

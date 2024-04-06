@@ -6,7 +6,7 @@
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 13:27:28 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/04/01 13:27:50 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/04/05 21:23:52 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ t_list	*ft_lstlast(t_list *lst)
 {
 	t_list	*holder;
 
+	holder = NULL;
 	while (lst != NULL)
 	{
 		holder = lst;

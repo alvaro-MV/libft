@@ -6,7 +6,7 @@
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 13:26:43 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/04/01 13:26:48 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/04/05 21:20:03 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 
 	list = *lst;
 	new->next = list;
+	*lst = new;
 }
-
 //int	main()
 //{
 	//t_list	new = (t_list) {"c", NULL};

@@ -6,7 +6,7 @@
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 13:26:54 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/04/04 22:27:57 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/04/06 14:27:18 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	del(void *content)
 	//ft_lstadd_front(&list, new);
 	//after->content = (void *) &val;
 	//ft_lstadd_back(&new, after);
-	
 	//ft_lstdelone(after, del);
 	//printf("contenido_last: %f\n", *(double *) ft_lstlast(new)->content);
 	//free(new);
