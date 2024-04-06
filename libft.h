@@ -6,7 +6,7 @@
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 14:00:35 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/04/06 13:55:12 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/04/06 15:14:34 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdint.h>
 
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}				t_list;
+}					t_list;
 
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstnew(void *content);

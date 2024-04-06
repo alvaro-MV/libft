@@ -6,7 +6,7 @@
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:52:04 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/04/01 13:23:00 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/04/06 15:28:09 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,14 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
 
+	if (count && size && SIZE_MAX / count < size)
+		return (NULL);
 	ptr = malloc(count * size);
 	if (ptr == NULL)
 		return (NULL);
 	ft_bzero(ptr, count * size);
 	return (ptr);
 }
-
-/*
- * Devuelve un puntero void a el primer elemento de la cadena. 
- *Lo que no tengo claro es que luego el puntero devuelto lo trata como un array.
-
- Controlar si uno de los argumentos es cero. 
- */
-
 // int main()
 // {
 

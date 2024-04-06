@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 14:27:57 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/04/06 14:27:58 by alvmoral         ###   ########.fr       */
+/*   Updated: 2024/04/06 15:31:55 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f) (void *), void (*del)(void *))
 	t_list	*new_node;
 	t_list	*first_node;
 
-	if (lst == NULL || !f)
+	if (lst == NULL || !f || !del)
 		return (NULL);
 	first_node = NULL;
 	while (lst != NULL)
