@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_chtoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alvaro <alvaro@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/22 21:27:35 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/03/27 01:24:10 by alvaro           ###   ########.fr       */
+/*   Created: 2024/04/09 19:15:35 by alvmoral          #+#    #+#             */
+/*   Updated: 2024/04/11 20:11:23 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/libft.h"
+#include "include/_toa.h"
 
-int	ft_tolower(int c)
+int	ft_chtoa_w(unsigned int c)
 {
-	if (c >= 65 && c <= 90)
-		c += 32;
-	return (c);
+	int	counter;
+
+	counter = write(1, &c, 1);
+	return (counter);
 }

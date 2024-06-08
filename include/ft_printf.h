@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvmoral <alvmoral@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 21:04:11 by alvmoral          #+#    #+#             */
-/*   Updated: 2024/04/06 14:58:25 by alvmoral         ###   ########.fr       */
+/*   Created: 2024/04/07 19:50:08 by alvaro            #+#    #+#             */
+/*   Updated: 2024/04/11 20:08:49 by alvmoral         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/libft.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+# include <stdarg.h>
+# include <unistd.h>
+# include <stdlib.h>
 
-char	*ft_strchr(const char *s, int c)
-{
-	c = (char) c;
-	while (*s)
-	{
-		if (*s == c)
-			return ((char *) s);
-		s++;
-	}
-	if (*s == c)
-		return ((char *) s);
-	else
-		return (0);
-}
+int	ft_xtoa_w(unsigned int nb, char c);
+int	ft_utoa_w(unsigned int nb);
+int	ft_itoa_w(int nb);
+int	ft_ptoa_w(unsigned long long nb);
+int	ft_printf(char const *s1, ...);
+int	ft_strtoa_w(char *str);
+int	ft_chtoa_w(unsigned int c);
 
-// int main()
-// {
-//     const char s[] = "HOLLLa";
-//     printf("str: %s\n", ft_strchr(s, 'O'));
-//     printf("str: %s\n", strchr(s, 'O'));
-// }
+#endif

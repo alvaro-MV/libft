@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "include/libft.h"
 
 static int	set_index(size_t *i, size_t *j, size_t len, int diff)
 {
